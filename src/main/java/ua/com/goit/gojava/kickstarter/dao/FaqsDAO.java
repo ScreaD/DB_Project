@@ -1,0 +1,68 @@
+package ua.com.goit.gojava.kickstarter.dao;
+
+import ua.com.goit.gojava.kickstarter.Faq;
+import ua.com.goit.gojava.kickstarter.Faqs;
+
+import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
+
+public class FaqsDAO extends AbstractDAO implements Faqs {
+
+    @Override
+    public void add(Faq faq) {
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("insert into faqs (question, answer) values (?, ?)");
+            statement.setString(1, faq.getQuestion());
+            statement.setString(2, faq.getAnswer());
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException("Something wrong with adding new faq", e);
+        }
+    }
+
+    @Override
+    public List<Faq> getFaqs() {
+        try (Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
+            List<Faq> result = new LinkedList<Faq>();
+
+            ResultSet rs = statement.executeQuery("select * from faqs");
+            while (rs.next()) {
+                result.add(new Faq(rs.getString("question"), rs.getString("answer")));
+            }
+
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException("Something wrong with getting all faqs", e);
+        }
+    }
+
+    @Override
+    public List<Faq> get(int project_id) {
+        try (Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
+            List<Faq> result = new LinkedList<Faq>();
+            ResultSet rs = statement.executeQuery("SELECT faq.question AS questions, faq.answer AS answers " +
+                    "FROM faq where id in (select id_faq from projects_faq_maps where id_project = " + project_id + ")");
+            while (rs.next()) {
+                result.add(new Faq(rs.getString("questions"), rs.getString("answers")));
+            }
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException("Something wrong with getting faqs by id", e);
+        }
+    }
+
+    @Override
+    public int size() {
+        try (Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
+
+            ResultSet rs = statement.executeQuery("select count(*) from faqs");
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Something wrong while calculation faqs size", e);
+        }
+    }
+}

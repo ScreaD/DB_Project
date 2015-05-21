@@ -119,7 +119,8 @@
         </div>
           <hr>
           <a href="/kickstarter/projects/${project.id}/payment" class="btn btn-success pull-right btnNext">Dotane <i class="glyphicon glyphicon-plus"></i></a>
-      </div>
+          <a href="/kickstarter/projects/${project.id}/faqs" class="btn btn-success pull-right btnNext">FAQ <i class="glyphicon glyphicon-plus"></i></a>
+        </div>
                                                                                        
 	                                                
                                                       

@@ -17,7 +17,7 @@ import ua.com.goit.gojava.kickstarter.Category;
 public class CategoriesDAO extends AbstractDAO implements Categories {
 	
 	@Override
-	public void add(final Category category) { // TODO implement correctly category's add new project
+	public void add(final Category category) { // TODO implement correctly categor's add new project
 		try (Connection connection = getConnection()) {
 			PreparedStatement statement = connection.prepareStatement("insert into categories (name) values (?)");
 			statement.setString(1, category.getName());

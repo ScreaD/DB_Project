@@ -24,5 +24,6 @@
 	
 	<bean id="categoriesDao" class="ua.com.goit.gojava.kickstarter.dao.CategoriesDAO"/>
 	<bean id="projectsDao" class="ua.com.goit.gojava.kickstarter.dao.ProjectsDAO"/>
+	<bean id="faqsDao"  class="ua.com.goit.gojava.kickstarter.dao.FaqsDAO"/>
 	
 </beans>

@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import ua.com.goit.gojava.kickstarter.Category;
+import ua.com.goit.gojava.kickstarter.Faq;
+import ua.com.goit.gojava.kickstarter.Faqs;
 import ua.com.goit.gojava.kickstarter.Project;
 import ua.com.goit.gojava.kickstarter.dao.CategoriesDAO;
+import ua.com.goit.gojava.kickstarter.dao.FaqsDAO;
 import ua.com.goit.gojava.kickstarter.dao.ProjectsDAO;
 
 @Controller
@@ -20,6 +23,9 @@ public class RestController {
 	
 	@Autowired
 	private ProjectsDAO projectsDao;
+
+	@Autowired
+	private FaqsDAO faqsDao;
 	
 	@RequestMapping(value = "/")
 	public String getMainPage(Model model) {
@@ -64,5 +70,12 @@ public class RestController {
 		Project project = projectsDao.get(id);
 		model.addAttribute("project", project);
 		return "project";
+	}
+
+	@RequestMapping(value = "projects/{id}/faqs")
+	public String getFaq(@PathVariable int id, Model model) {
+		List<Faq> faqs = faqsDao.get(id);
+		model.addAttribute("faqs", faqs);
+		return "faqs";
 	}
 }
