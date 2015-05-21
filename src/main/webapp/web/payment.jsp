@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,9 +85,9 @@
       
       <div class="panel">
         <div class="panel-body">
-          
-          
-          
+
+
+          <form:form action="/kickstarter/projects/${project.id}" method="POST">
           <!--/stories-->
           <div class="row">    
             <br>
@@ -104,9 +105,10 @@
             </div>
           </div>
           <div class="col-xs-9">
-            <%--<form:form method="POST" action="/kickstarter/projects/${project.id}">--%>
+            <input type="submit" value="Donate">
             <a href="/kickstarter/projects/${project.id}" class="btn btn-success pull-right btnNext">Donate<i class="glyphicon glyphicon-plus"></i></a></div>
         </div>
+        </form:form>
       </div>
                                                                                        
 	                                                

@@ -64,7 +64,6 @@ public class RestController {
 	}
 
 	@RequestMapping(value = "/projects/{id}", method = RequestMethod.POST)
-	@ResponseBody
 	public String addMoney(@PathVariable int id, Model model, @RequestParam("amount") int amount) {
 		projectsDao.donate(id, amount);
 		Project project = projectsDao.get(id);
