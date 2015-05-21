@@ -11,4 +11,6 @@ public interface Projects {
 
 	Project get(int index);
 
+	void donate(int id, int amount);
+
 }

@@ -118,7 +118,7 @@
           
         </div>
           <hr>
-          <a href="/servlets/payment?id=${project.id}" class="btn btn-success pull-right btnNext">Dotane <i class="glyphicon glyphicon-plus"></i></a>
+          <a href="/kickstarter/projects/${project.id}/payment" class="btn btn-success pull-right btnNext">Dotane <i class="glyphicon glyphicon-plus"></i></a>
       </div>
                                                                                        
 	                                                

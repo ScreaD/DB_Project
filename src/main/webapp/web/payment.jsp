@@ -6,12 +6,12 @@
   <title>Kickstarter payment</title>
   <meta name="generator" content="Bootply" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="/kickstarter/css/bootstrap.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
   <!--[if lt IE 9]>
   <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-  <link href="css/styleforaddnew.css" rel="stylesheet">
+  <link href="/kickstarter/css/styleforaddnew.css" rel="stylesheet">
 </head>
 <body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -27,7 +27,7 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li>
-          <a href="http://localhost:9000/servlets/categories" class="navbar-brand">Home</a>
+          <a href="/kickstarter/categories" class="navbar-brand">Home</a>
         </li>
         <li>
           <a href="#">Category</a>
@@ -104,9 +104,8 @@
             </div>
           </div>
           <div class="col-xs-9">
-        
-          
-            <a href="/servlets/categories?money=?" class="btn btn-success pull-right btnNext">Donate<i class="glyphicon glyphicon-plus"></i></a></div>
+            <%--<form:form method="POST" action="/kickstarter/projects/${project.id}">--%>
+            <a href="/kickstarter/projects/${project.id}" class="btn btn-success pull-right btnNext">Donate<i class="glyphicon glyphicon-plus"></i></a></div>
         </div>
       </div>
                                                                                        
@@ -136,7 +135,7 @@
 <footer>
   <div class="container">
       <div class="col-sm-6">
-        <h3 class="pull-center foot">&copy; Deuces Inc. 2014. All Rights Reserved.</a></p>
+        <h3 class="pull-center foot">&copy; Deuces Inc. 2014. All Rights Reserved.</h3>
       </div>
     </div>
   </div>

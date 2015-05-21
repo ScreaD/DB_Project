@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import ua.com.goit.gojava.kickstarter.Category;
 import ua.com.goit.gojava.kickstarter.Project;
@@ -44,10 +43,26 @@ public class RestController {
 		return "projects";
 	}
 	
-	@RequestMapping(value = "/projects/{id}")
+	@RequestMapping(value = "/projects/{id}", method = RequestMethod.GET)
 	public String getProject(@PathVariable int id, Model model) {
 		Project project = projectsDao.get(id);
 		model.addAttribute("project", project);
 		return "project";
-	} 
+	}
+
+	@RequestMapping(value = "projects/{id}/payment", method = RequestMethod.GET)
+	public String paymentPage(@PathVariable int id, Model model) {
+		Project project = projectsDao.get(id);
+		model.addAttribute("project", project);
+		return "payment";
+	}
+
+	@RequestMapping(value = "/projects/{id}", method = RequestMethod.POST)
+	@ResponseBody
+	public String addMoney(@PathVariable int id, Model model, @RequestParam("amount") int amount) {
+		projectsDao.donate(id, amount);
+		Project project = projectsDao.get(id);
+		model.addAttribute("project", project);
+		return "project";
+	}
 }

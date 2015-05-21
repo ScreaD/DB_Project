@@ -78,4 +78,22 @@ public class ProjectsDAO extends AbstractDAO implements Projects {
 		}
 	}
 
+	@Override
+	public void donate(int id, int amount) {
+		try (Connection connection = getConnection()) {
+			Statement statement = connection.createStatement();
+
+			ResultSet rs = statement.executeQuery("select amount from projects WHERE id = " + id);
+			int currentAmount;
+			if (rs.next()) {
+				currentAmount = rs.getInt("amount");
+				statement.executeQuery("update projects SET amount = " + (currentAmount + amount)
+											+ "WHERE id = " + id);
+			}
+			throw new RuntimeException("There is no category with id = " + id);
+		} catch (SQLException e) {
+			throw new RuntimeException("Something wrong while getting project by id", e);
+		}
+	}
+
 }
