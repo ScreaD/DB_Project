@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+target
+.classpath
+.project
+classpath
+kickstarter-new.iml
+.idea
+.settings
+.externalToolBuilders
