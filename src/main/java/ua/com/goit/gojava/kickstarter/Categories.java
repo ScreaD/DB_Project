@@ -11,6 +11,4 @@ public interface Categories {
 	Category get(int id);
 	
 	int size();
-
-	boolean exists(int id);
 }

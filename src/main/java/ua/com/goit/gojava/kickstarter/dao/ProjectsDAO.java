@@ -18,7 +18,7 @@ import ua.com.goit.gojava.kickstarter.Projects;
 public class ProjectsDAO extends AbstractDAO implements Projects {
 	
 	@Override
-	public void add(Project project) {
+	public void add(Project project) { // TODO implement correctly project's add new project
 		try (Connection connection = getConnection()) {
 			PreparedStatement statement = connection.prepareStatement(
 					"insert into projects (name, description, category_id) values (?, ?, ?)"); //TODO add all rows
@@ -27,7 +27,7 @@ public class ProjectsDAO extends AbstractDAO implements Projects {
 			statement.setInt(3, project.getCategory().getId());
 			statement.execute();
 		} catch (SQLException e) {
-			throw new RuntimeException("Что-то не так с запросом", e);
+			throw new RuntimeException("Something wrong with adding new project", e);
 		}
 	}
 
@@ -49,7 +49,7 @@ public class ProjectsDAO extends AbstractDAO implements Projects {
 			
 			return result;
 		} catch (SQLException e) {
-			throw new RuntimeException("Что-то не так с запросом", e);
+			throw new RuntimeException("Something wrong with getting all projects", e);
 		}
 	}
 	
@@ -69,17 +69,12 @@ public class ProjectsDAO extends AbstractDAO implements Projects {
 						rs.getInt("days"),
 						rs.getString("history"),
 						rs.getString("video"));
-				
-//				Category category = new Category(rs.getInt("category_id"), rs.getString("category_name"));
-				
-//				project.setCategory(category);
-					
 				return project;
 			}
-			throw new RuntimeException("Не нашли проект с id = " + index);
+			throw new RuntimeException("There is no category with id = " + index);
 			
 		} catch (SQLException e) {
-			throw new RuntimeException("Что-то не так с запросом", e);
+			throw new RuntimeException("Something wrong while getting project by id", e);
 		}
 	}
 

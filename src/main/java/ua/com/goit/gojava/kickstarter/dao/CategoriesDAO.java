@@ -17,13 +17,13 @@ import ua.com.goit.gojava.kickstarter.Category;
 public class CategoriesDAO extends AbstractDAO implements Categories {
 	
 	@Override
-	public void add(final Category category) {
+	public void add(final Category category) { // TODO implement correctly category's add new project
 		try (Connection connection = getConnection()) {
 			PreparedStatement statement = connection.prepareStatement("insert into categories (name) values (?)");
 			statement.setString(1, category.getName());
 			statement.execute();
 		} catch (SQLException e) {
-			throw new RuntimeException("Что-то не так с запросом", e);
+			throw new RuntimeException("Something wrong with adding new category", e);
 		} 
 	}
 
@@ -40,7 +40,7 @@ public class CategoriesDAO extends AbstractDAO implements Categories {
 			
 			return result;
 		} catch (SQLException e) {
-			throw new RuntimeException("Что-то не так с запросом", e);
+			throw new RuntimeException("Something wrong with getting all categories", e);
 		}
 	}
 	
@@ -54,9 +54,9 @@ public class CategoriesDAO extends AbstractDAO implements Categories {
 				return new Category(rs.getInt("id"), rs.getString("name"));
 			}	
 			
-			throw new RuntimeException("Чёто мы не нашли категории с id = " + id);
+			throw new RuntimeException("There is no category with id = " + id);
 		} catch (SQLException e) {
-			throw new RuntimeException("Что-то не так с запросом", e);
+			throw new RuntimeException("Something wrong with getting category by id", e);
 		}
 	}
 
@@ -68,20 +68,7 @@ public class CategoriesDAO extends AbstractDAO implements Categories {
 			ResultSet rs = statement.executeQuery("select count(*) from categories");
 			return rs.getInt(1);
 		} catch (SQLException e) {
-			throw new RuntimeException("Что-то не так с запросом", e);
+			throw new RuntimeException("Something wrong while calculation categories size", e);
 		}
 	}
-
-	@Override
-	public boolean exists(final int id) {
-		try (Connection connection = getConnection()) {
-			Statement statement = connection.createStatement(); 
-
-			ResultSet rs = statement.executeQuery("select id from categories where id = " + id);
-			return rs.next();
-		} catch (SQLException e) {
-			throw new RuntimeException("Что-то не так с запросом", e);
-		}
-	}
-
 }

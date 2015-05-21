@@ -25,6 +25,7 @@ import ua.com.goit.gojava.kickstarter.Categories;
 import ua.com.goit.gojava.kickstarter.Category;
 import ua.com.goit.gojava.kickstarter.Project;
 import ua.com.goit.gojava.kickstarter.Projects;
+import ua.com.goit.gojava.kickstarter.dao.CategoriesDAO;
 import ua.com.goit.gojava.kickstarter.dao.mock.CategoriesDAOMock;
 import ua.com.goit.gojava.kickstarter.dao.mock.DataSourceMock;
 import ua.com.goit.gojava.kickstarter.dao.mock.ProjectsDAOMock;
@@ -38,8 +39,8 @@ import ua.com.goit.gojava.kickstarter.service.CategoriesProjectsService;
 		DataSourceMock.class
 })
 public class CategoriesProjectsServiceTest_WithSpring {
-//
-//	@Autowired
+
+//	@Autowired  // TODO correct test!!
 //	private Categories categoriesDao;
 //
 //	@Autowired
