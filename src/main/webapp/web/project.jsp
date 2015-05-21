@@ -103,8 +103,8 @@
                   <p><c:out value="${project.description}"/></p>
                   <p>Collected already <c:out value="${project.collected}"/> of <c:out value="${project.amount}"/></p>
 				  <p>Left days: <c:out value="${project.days}"/></p>
-				  <p>History: <c:out value="${project.details.history}"/></p>
-<iframe width="560" height="315" src="${project.details.video}" frameborder="0" allowfullscreen></iframe>
+				  <p>History: <c:out value="${project.history}"/></p>
+<iframe width="560" height="315" src="${project.video}" frameborder="0" allowfullscreen></iframe>
                 <div class="col-xs-3"></div>
               </div>
               <br><br>

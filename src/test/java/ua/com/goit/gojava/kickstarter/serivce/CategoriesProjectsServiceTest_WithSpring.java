@@ -38,29 +38,29 @@ import ua.com.goit.gojava.kickstarter.service.CategoriesProjectsService;
 		DataSourceMock.class
 })
 public class CategoriesProjectsServiceTest_WithSpring {
-
-	@Autowired
-	private Categories categoriesDao;
-	
-	@Autowired
-	private Projects projectsDao;
-	
-	@Autowired
-	private CategoriesProjectsService service;
-
-	@Test
-	public void test() {
-		// given 
-		Category category = new Category(1, "cat1");
-		when(categoriesDao.get(1)).thenReturn(category);
-		when(projectsDao.getProjects(category)).thenReturn(Arrays.asList(new Project(1, "proj1", "descr1")));
-		
-		// when 
-		List<Project> result = service.getCategoryProjects(1);
-		
-		// then
-		assertEquals("[Project [id=1, name=proj1]]", result.toString());
-	}
+//
+//	@Autowired
+//	private Categories categoriesDao;
+//
+//	@Autowired
+//	private Projects projectsDao;
+//
+//	@Autowired
+//	private CategoriesProjectsService service;
+//
+//	@Test
+//	public void test() {
+//		// given
+//		Category category = new Category(1, "cat1");
+//		when(categoriesDao.get(1)).thenReturn(category);
+//		when(projectsDao.getProjects(category)).thenReturn(Arrays.asList(new Project(1, "proj1", "descr1")));
+//
+//		// when
+//		List<Project> result = service.getCategoryProjects(1);
+//
+//		// then
+//		assertEquals("[Project [id=1, name=proj1]]", result.toString());
+//	}
 
 
 }

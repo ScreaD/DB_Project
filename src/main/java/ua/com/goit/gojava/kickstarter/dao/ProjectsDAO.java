@@ -21,7 +21,7 @@ public class ProjectsDAO extends AbstractDAO implements Projects {
 	public void add(Project project) {
 		try (Connection connection = getConnection()) {
 			PreparedStatement statement = connection.prepareStatement(
-					"insert into projects (name, description, category_id) values (?, ?, ?)");
+					"insert into projects (name, description, category_id) values (?, ?, ?)"); //TODO add all rows
 			statement.setString(1, project.getName());
 			statement.setString(2, project.getDescription());
 			statement.setInt(3, project.getCategory().getId());
@@ -58,23 +58,21 @@ public class ProjectsDAO extends AbstractDAO implements Projects {
 		try (Connection connection = getConnection()) {
 			Statement statement = connection.createStatement(); 
 
-			ResultSet rs = statement.executeQuery(
-							"select "
-							+ "c.id as category_id, "
-							+ "p.name as project_name, "
-							+ "description, "
-							+ "p.id as project_id, "
-							+ "c.name as category_name "
-							+ " from projects p, categories c where p.category_id = c.id and p.id = " + index);
+			ResultSet rs = statement.executeQuery("select * from projects WHERE id = " + index);
 			
 			if (rs.next()) {
-				Project project = new Project(rs.getInt("project_id"), 
-						rs.getString("project_name"), 
-						rs.getString("description"));
+				Project project = new Project(rs.getInt("id"),
+						rs.getString("name"),
+						rs.getString("description"),
+						rs.getInt("collected"),
+						rs.getInt("amount"),
+						rs.getInt("days"),
+						rs.getString("history"),
+						rs.getString("video"));
 				
-				Category category = new Category(rs.getInt("category_id"), rs.getString("category_name"));
+//				Category category = new Category(rs.getInt("category_id"), rs.getString("category_name"));
 				
-				project.setCategory(category);
+//				project.setCategory(category);
 					
 				return project;
 			}

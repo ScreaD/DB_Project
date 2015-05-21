@@ -2,16 +2,18 @@ package ua.com.goit.gojava.kickstarter;
 
 public class Project {
 
-	private int id; 
+	private int id;
 	private String name;
-	private int amount;
-	private int days;
 	private Category category;
 	private String description;
-	private int exist;
+	private int collected;
+	private int amount;
+	private int days;
 	private String history;
-	private String demoVideo;
-	
+	private String video;
+
+	private String questionAnswers;
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -45,14 +47,12 @@ public class Project {
 		return "Project [id=" + id + ", name=" + name + "]";
 	}
 
-	private String questionAnswers;
-
 	public Project(int id, String name, String description) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -61,16 +61,15 @@ public class Project {
 		this.id = id;
 	}
 
-	public Project(int id, String name, int amount, int days, String demoVideo, String description) {
+	public Project(int id, String name, String description, int collected, int amount, int days, String history, String video) {
 		this.id = id;
 		this.name = name;
+		this.description = description;
+		this.collected = collected;
 		this.amount = amount;
 		this.days = days;
-		this.description = description;
-		this.exist = 0;
-		this.demoVideo = demoVideo; 
-		this.history = null;
-		this.questionAnswers = null;
+		this.history = history;
+		this.video = video;
 	}
 
 	public void setCategory(Category category) {
@@ -93,20 +92,8 @@ public class Project {
 		return description;
 	}
 
-	public int getAmount() {
-		return amount;
-	}
-
-	public int getExist() {
-		return exist;
-	}
-
 	public int getDays() {
 		return days;
-	}
-	
-	public void setDemoVideo(String demoVideo) {
-		this.demoVideo = demoVideo;
 	}
 	
 	public void addQuestionAnswer(String questionAnswers) {
@@ -121,10 +108,6 @@ public class Project {
 		return history;
 	}
 
-	public String getDemoVideo() {
-		return demoVideo;
-	}
-
 	public String getQuestionAnswers() {
 		return questionAnswers;
 	}
@@ -133,4 +116,15 @@ public class Project {
 		this.amount -= amount;
 	}
 
+	public double getAmount() {
+		return amount;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public double getCollected() {
+		return collected;
+	}
 }
