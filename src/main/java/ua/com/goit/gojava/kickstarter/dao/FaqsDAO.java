@@ -7,8 +7,20 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * The class is getting necessary information to the table "faqs"
+ *
+ * @author scread
+ * @see ua.com.goit.gojava.kickstarter.dao.AbstractDAO
+ */
 public class FaqsDAO extends AbstractDAO implements Faqs {
 
+    /**
+     * Adds to the table "faqs" fields question, obtained with the program
+     *
+     * @throws RuntimeException, when something wrong with adding new faq
+     * @param faq class object Faq, which will be added to the database
+     */
     @Override
     public void add(Faq faq) {
         try (Connection connection = getConnection()) {
@@ -21,6 +33,13 @@ public class FaqsDAO extends AbstractDAO implements Faqs {
         }
     }
 
+    /**
+     * Retrieves from the table "faqs" all records, create a list of objects of List<Faq>
+     * and return to the list of data to display user
+     *
+     * @throws RuntimeException, when something wrong with getting all faqs
+     * @return  the list of objects of class Faq
+     */
     @Override
     public List<Faq> getFaqs() {
         try (Connection connection = getConnection()) {
@@ -38,6 +57,13 @@ public class FaqsDAO extends AbstractDAO implements Faqs {
         }
     }
 
+    /**
+     * Getting a list of frequently asked questions related to the project design by id
+     *
+     * @throws RuntimeException, when something wrong with getting faqs by project's id
+     * @param project_id    identifier project
+     * @return              a list of found objects-class Faq
+     */
     @Override
     public List<Faq> get(int project_id) {
         try (Connection connection = getConnection()) {
@@ -54,6 +80,13 @@ public class FaqsDAO extends AbstractDAO implements Faqs {
         }
     }
 
+
+    /**
+     * Performs counting the number of records in the table "faqs"
+     *
+     * @throws RuntimeException, when something wrong while calculation faqs size
+     * @return  number records found, 0 - no records
+     */
     @Override
     public int size() {
         try (Connection connection = getConnection()) {

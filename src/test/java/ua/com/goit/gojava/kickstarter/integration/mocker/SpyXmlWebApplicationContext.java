@@ -11,9 +11,6 @@ import java.util.List;
 
 import static org.mockito.Mockito.spy;
 
-/**
- * Created by Sanja on 17.06.14.
- */
 public class SpyXmlWebApplicationContext extends XmlWebApplicationContext {
 
     private static List<String> spies;

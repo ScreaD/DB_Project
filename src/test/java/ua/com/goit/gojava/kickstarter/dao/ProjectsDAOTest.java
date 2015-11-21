@@ -31,7 +31,7 @@ public class ProjectsDAOTest extends ProjectsTest {
 	
 	@BeforeClass
 	public static void cleanDB() {
-		new File(DATABASE_PATH).delete();
+		new File(DATABASE_PATH);
 	}
 	
 	@Override

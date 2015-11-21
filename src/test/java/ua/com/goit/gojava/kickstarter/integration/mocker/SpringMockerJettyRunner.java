@@ -13,11 +13,7 @@ import java.util.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 
-/**
- * User: oleksandr.baglai
- * Date: 11/18/12
- * Time: 5:07 PM
- */
+
 public class SpringMockerJettyRunner extends JettyRunner {
 
     private List<String> mocks = new LinkedList<String>();

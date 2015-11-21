@@ -30,7 +30,7 @@ public class CategoriesDAOTest extends CategoriesTest {
 
 	@BeforeClass
 	public static void cleanDB() {
-		new File(ProjectsDAOTest.DATABASE_PATH).delete();
+		new File(ProjectsDAOTest.DATABASE_PATH);
 	}
 	
 	@After

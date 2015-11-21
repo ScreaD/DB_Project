@@ -23,11 +23,11 @@ public abstract class ProjectsTest {
 		list = getProjects();
 	}
 	
-	@Test 
-	public void shouldEmptyProjects_whenNoProjects() {	
+	@Test
+	public void shouldEmptyProjects_whenNoProjects() {
 		// when
 		List<Project> found = list.getProjects(new Category(1, "name"));
-		
+
 		// then
 		assertEquals(0, found.size());
 	}

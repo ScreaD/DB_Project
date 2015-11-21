@@ -1,10 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Kickstarter projects</title>
+		<title>Kickstarter проекти</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="/kickstarter/css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +20,7 @@
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">Навігація</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -28,19 +29,16 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li>
-          <a href="/kickstarter/categories" class="navbar-brand">Home</a>
+          <a href="/kickstarter/" class="navbar-brand">Головна</a>
         </li>
         <li>
-          <a href="#">Category</a>
+          <a href="/kickstarter/categories" class="navbar-brand">До категорій</a>
         </li>
         <li>
-          <a href="#">Category</a>
+          <a href="#">Про платформу</a>
         </li>
         <li>
-          <a href="#">Category</a>
-        </li>
-        <li>
-          <a href="#">About</a>
+          <a href="#">Про нас</a>
         </li>
       </ul>
       <ul class="nav navbar-right navbar-nav">
@@ -48,7 +46,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
           <ul class="dropdown-menu" style="padding:12px;">
             <form class="form-inline">
-              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+              <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Пошук">
             </form>
           </ul>
         </li>
@@ -135,7 +133,7 @@
   <div class="row">
     <div class="col col-sm-12">
       
-      <h1>Follow Us</h1>
+      <h1>Слідкуйте за нами</h1>
       <div class="btn-group">
        <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
 	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
@@ -156,7 +154,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-          <h3 class="pull-center foot">&copy; Deuces Inc. 2014. All Rights Reserved.</h3>
+          <h3 class="pull-center foot">&copy; Deuces Inc. 2015. Всі права захищені.</h3>
       </div>
     </div>
   </div>

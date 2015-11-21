@@ -23,11 +23,6 @@ import ua.com.goit.gojava.kickstarter.integration.pageobjects.ProjectsList;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-/**
- * User: oleksandr.baglai
- * Date: 11/18/12
- * Time: 4:47 PM
- */
 public class MainPageTest_MockedSpringService {
     private WebDriver driver;
     private SpringMockerJettyRunner runner;

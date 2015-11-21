@@ -27,11 +27,11 @@ public class RestController {
 	@Autowired
 	private FaqsDAO faqsDao;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/", produces = "text/plain;charset=UTF-8")
 	public String getMainPage(Model model) {
-		List<Category> categories = categoriesDao.getCategories();
-		model.addAttribute("categories", categories);
-		return "categories";
+//		List<Category> categories = categoriesDao.getCategories();
+//		model.addAttribute("categories", categories);
+		return "index";
 	}
 	
 	@RequestMapping(value = "/categories")
